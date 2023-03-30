@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Drawing Circle</title>
+</head>
+<body>
+	<canvas id="canvas" width="400" height="400" style="background-color:grey;"></canvas>
+	<script type="text/javascript">
+		let canvas = document.getElementById("canvas");
+		let ctx = canvas.getContext("2d")
+
+		// Function untuk Circle
+		function arc(x1, y1, radius, start, stop, direction, color="Green", fill="Pink",  width=2){
+			ctx.strokeStyle = color
+			ctx.lineWidth = width
+			ctx.fillStyle = fill
+
+			ctx.beginPath();
+			ctx.arc(x1, y1, radius, start, stop, direction)
+			ctx.closePath();
+			ctx.stroke();
+			ctx.fill();
+		}
+
+		arc(200, 200, 50, 0, 2*Math.PI, false, "Green", "Pink", 3)
+
+		// ctx.strokeStyle = "Purple";
+		// ctx.fillStyle = "Purple"
+
+		// // Lingkaran
+		// ctx.beginPath();
+		// ctx.arc(200, 200, 50, 0, 2*Math.PI, false);
+		// ctx.closePath();
+		// ctx.stroke();
+		// ctx.fill();
+
+		// // 1/2 Lingakaran
+		// ctx.beginPath();
+		// ctx.arc(50, 50, 30, 0, Math.PI, true);
+		// ctx.stroke();
+		// ctx.fill();
+
+		// // 1/2 Lingkaran
+		// ctx.beginPath();
+		// ctx.arc(100, 100, 30, 0, Math.PI, false);
+		// ctx.stroke();
+		// ctx.fill()
+
+	</script>
+
+</body>
+</html>

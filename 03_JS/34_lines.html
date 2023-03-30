@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Drawing Line</title>
+</head>
+<body>
+	<canvas id="canvas" width="400" height="400" style="background-color:grey;"></canvas>
+	<script type="text/javascript">
+		let canvas = document.getElementById("canvas");
+		let ctx = canvas.getContext("2d")
+
+
+		function line(x1, y1, x2, y2, color="Black", width=1){
+			ctx.strokeStyle = color;
+			ctx.lineWidth = width;
+
+			ctx.beginPath();
+			ctx.moveTo(x1, y1);
+			ctx.lineTo(x2, y2);
+			ctx.closePath();
+			ctx.stroke();
+		}
+
+		//line 1
+		// ctx.strokeStyle = "Pink";
+		// ctx.lineWidth = 5
+
+		// ctx.beginPath();
+		// ctx.moveTo(10, 10);
+		// ctx.lineTo(60, 60);
+		// // ctx.closePath(); //optional
+		// ctx.stroke();
+
+		line(10, 10, 60, 60, "Orange", 5)
+
+		//line 2
+		ctx.strokeStyle = "Green"
+		ctx.lineWidth = 1
+
+		ctx.beginPath();
+		ctx.moveTo(40, 30);
+		ctx.lineTo(100, 90);
+		ctx.stroke();
+
+		// Home
+
+		ctx.strokeStyle = "Black";
+		ctx.lineWidth = 3;
+		ctx.fillStyle = "Green"
+
+		ctx.beginPath();
+		ctx.moveTo(100, 100);
+		ctx.lineTo(100, 60);
+		ctx.lineTo(130, 30);
+		ctx.lineTo(160, 60);
+		ctx.lineTo(160, 100);
+		ctx.lineTo(100, 100);
+		ctx.closePath();
+		ctx.stroke();
+		ctx.fill()
+
+		// Boat
+
+		ctx.strokeStyle = "Brown";
+		ctx.lineWidth = 1;
+		ctx.fillStyle = "Brown"
+
+		ctx.beginPath();
+		ctx.moveTo(100, 250);
+		ctx.lineTo(80, 220);
+		ctx.lineTo(320, 220);
+		ctx.lineTo(300, 250);
+		ctx.lineTo(100, 250);
+		ctx.fill()
+
+		ctx.fillStyle = "Red"
+		ctx.beginPath()
+		ctx.moveTo(210, 220);
+		ctx.lineTo(210, 120);
+		ctx.lineTo(250, 170);
+		ctx.lineTo(210, 170);
+		ctx.stroke()
+		ctx.fill()
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Hangman</title>
+</head>
+<body>
+	<canvas id="canvas" width="800" height="800" style="background-color: grey;"></canvas>
+	<script type="text/javascript">
+		let canvas = document.getElementById("canvas");
+		let ctx = canvas.getContext("2d");
+
+		function circle(x, y, radius, color, isFilled, width=10) {
+			ctx.lineWidth = width
+			ctx.strokeStyle = color;
+			ctx.beginPath();
+			ctx.arc(x, y, radius, 0, 2*Math.PI, false);
+			ctx.closePath();
+			ctx.stroke();
+			if (isFilled) {
+				ctx.fillStyle = color;
+				ctx.fill();
+			}
+		}
+
+		function line(initX, initY, finalX, finalY, color, width=10) {
+			ctx.strokeStyle = color
+			ctx.lineWidth = width
+
+			ctx.beginPath();
+			ctx.moveTo(initX, initY);
+			ctx.lineTo(finalX, finalY);
+			ctx.closePath();
+			ctx.stroke();
+		}
+
+		function hangman(x, y, color="black") {
+			// Head
+			circle(x, y, 30, color, false);
+
+			// Body
+			line(x, y+30, x, y+130, color);
+
+			// Hand
+			line(x, y+30, x-30, y+100, color);
+			line(x, y+30, x+30, y+100, color);
+
+			// Foot
+			line(x, y+127, x-30, y+200, color);
+			line(x, y+127, x+30, y+200, color);
+
+			// Stand
+			line(x-180, y+250, x-80, y+250, color);
+			line(x-130, y+250, x-130, y-80, color);
+			line(x-135, y-80, x+2, y-80, color);
+			line(x-80, y-80, x-130, y-30, color);
+
+			line(x, y-80, x, y-30, color, 3);
+		}
+
+		hangman(300, 300, "Green")
+
+	</script>
+</body>
+</html>

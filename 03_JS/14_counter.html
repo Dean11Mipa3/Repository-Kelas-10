@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Counter</title>
+	<script type="text/javascript">
+		
+		var counter = 0;
+		function count() {
+			counter++;
+			document.querySelector("#counter").innerHTML = counter;
+			// % itu modulo atau reminder atau sisa bagi
+			if (counter % 10 === 0){
+				alert("Counternya sudah "+counter)
+			}
+		}
+	</script>
+</head>
+<body>
+	<h1 id="counter">0</h1>
+	<button onclick="count()">Click Me!</button>
+
+</body>
+</html>

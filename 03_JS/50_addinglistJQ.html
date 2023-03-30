@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Adding List</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready( () =>{
+
+			$("#submit-task").attr('disabled', true);
+
+			$("#entry-task").keyup = () => {
+				$("#form-task").submit(function() {
+
+					let li = document.createElement("li");
+
+					li.innerHTML = $("#entry-task").val();
+					$("#entry-task").val("");
+					$("#submit-task").attr("disabled", true);
+
+					$("#tasks").append.(li);
+				})
+
+			}
+
+		})
+	</script>
+</head>
+<body>
+	<h1>To do List</h1>
+	<ul id="tasks"></ul>
+	<form id="form-task">
+		<input type="text" name="" id="entry-task">
+		<input type="submit" name="" id="submit-task">
+	</form>
+
+</body>
+</html>
